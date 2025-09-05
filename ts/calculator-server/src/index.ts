@@ -28,3 +28,7 @@ server.resource(
     }]
   })
 );
+
+// Start receiving messages on stdin and sending messages on stdout
+const transport = new StdioServerTransport();
+server.connect(transport);
