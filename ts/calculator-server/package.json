@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A simple calculator server using Model Context Protocol",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.5",
     "zod": "^3.25.76"
