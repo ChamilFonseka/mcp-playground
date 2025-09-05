@@ -7,3 +7,12 @@ const server = new McpServer({
   name: "Calculator MCP Server",
   version: "1.0.0"
 });
+
+// Add an addition tool
+server.tool(
+  "add",
+  { a: z.number(), b: z.number() },
+  async ({ a, b }) => ({
+    content: [{ type: "text", text: String(a + b) }]
+  })
+);
