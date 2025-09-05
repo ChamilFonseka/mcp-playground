@@ -6,3 +6,6 @@ npm install typescript -g
 # Install the MCP SDK and Zod for schema validation
 npm install @modelcontextprotocol/sdk zod
 npm install -D @types/node typescript
+
+# Install the inspector
+npm install -D @modelcontextprotocol/inspector
