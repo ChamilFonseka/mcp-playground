@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "tsc && node ./build/index.js",
-    "build": "tsc && node ./build/index.js",
+    "build": "tsc",
+    "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector node build/index.js"
   },
   "keywords": [],

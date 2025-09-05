@@ -10,8 +10,14 @@ const server = new McpServer({
 
 // Add an addition tool
 server.tool(
-  "add",
+  "add_two_numbers",
+  "Adds two numbers together",
   { a: z.number(), b: z.number() },
+  {
+    destructiveHint: false,
+    requiresContext: false,
+    idempotentHint: true,
+  },
   async ({ a, b }) => ({
     content: [{ type: "text", text: String(a + b) }]
   })
