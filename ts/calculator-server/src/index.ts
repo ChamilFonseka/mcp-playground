@@ -5,7 +5,18 @@ import { z } from "zod";
 // Create an MCP server
 const server = new McpServer({
   name: "Calculator MCP Server",
-  version: "1.0.0"
+  version: "1.0.0",
+  capabilities: {
+    tools: {
+      listChanged: true
+    },
+    resources: {
+      listChanged: true
+    },
+    prompts: {
+      listChanged: true
+    }
+  }
 });
 
 // Add an addition tool
