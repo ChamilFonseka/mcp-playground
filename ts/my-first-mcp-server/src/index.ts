@@ -1,10 +1,10 @@
 import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
- 
+
 // Create an MCP server
 const server = new McpServer({
-  name: "Calculator MCP Server",
+  name: "My simple MCP Server",
   version: "1.0.0",
   capabilities: {
     tools: {
@@ -32,6 +32,21 @@ server.tool(
   async ({ a, b }) => ({
     content: [{ type: "text", text: String(a + b) }]
   })
+);
+
+server.tool(
+  "say_hello",
+  "Say Hello",
+  { name: z.string().optional() },
+  {
+    destructiveHint: false,
+    requiresContext: false,
+    idempotentHint: true,
+  },
+  async ({ name }) => {
+    const res = `Hello, ${name || process.env.USERNAME || "stranger"}!`;
+    return { content: [{ type: "text", text: res }] };
+  }
 );
 
 // Add a dynamic greeting resource

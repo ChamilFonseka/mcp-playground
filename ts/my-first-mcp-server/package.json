@@ -1,5 +1,5 @@
 {
-  "name": "calculator-server",
+  "name": "my-first-mcp-server",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "A simple calculator server using Model Context Protocol",
+  "description": "A simple mcp server using Model Context Protocol",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.5",
     "zod": "^3.25.76"
