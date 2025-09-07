@@ -14,8 +14,19 @@
 				"debug": {
 					"type": "node"
 				}
+			},
+			"env": {
+				"NAME": "${input:name}",
+
 			}
 		}
 	},
-	"inputs": []
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "name",
+			"description": "Name to say hello to",
+			"password": false
+		},
+	]
 }

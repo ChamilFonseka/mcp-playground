@@ -44,7 +44,7 @@ server.tool(
     idempotentHint: true,
   },
   async ({ name }) => {
-    const res = `Hello, ${name || process.env.USERNAME || "stranger"}!`;
+    const res = `Hello, ${name || process.env.NAME || "stranger"}!`;
     return { content: [{ type: "text", text: res }] };
   }
 );
