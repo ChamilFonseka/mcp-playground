@@ -49,7 +49,27 @@ server.tool(
   }
 );
 
-// Add a dynamic greeting resource
+server.resource(
+  "users",
+  "users://all",
+  {
+    description: "Get all users",
+    title: "Users",
+    mimeType: "application/json",
+  },
+  async uri => {
+    return {
+      contents: [
+        {
+          uri: uri.href,
+          text: JSON.stringify(users),
+          mimeType: "application/json",
+        },
+      ],
+    }
+  }
+)
+
 server.resource(
   "greeting",
   new ResourceTemplate("greeting://{name}", { list: undefined }),
@@ -64,3 +84,39 @@ server.resource(
 // Start receiving messages on stdin and sending messages on stdout
 const transport = new StdioServerTransport();
 server.connect(transport);
+
+const users = [
+  {
+    userId: "1",
+    name: "Alice",
+    age: 30
+  },
+  {
+    userId: "2",
+    name: "Bob",
+    age: 25
+  },
+  {
+    userId: "3",
+    name: "Charlie",
+    age: 35
+  }
+]
+
+const userProfiles = [
+  {
+    userId: "1",
+    bio: "Software Engineer from San Francisco",
+    interests: ["Coding", "Music", "Travel"]
+  },
+  {
+    userId: "2",
+    bio: "Graphic Designer from New York",
+    interests: ["Art", "Photography", "Reading"]
+  },
+  {
+    userId: "3",
+    bio: "Data Scientist from London",
+    interests: ["AI", "Machine Learning", "Statistics"]
+  }
+]
