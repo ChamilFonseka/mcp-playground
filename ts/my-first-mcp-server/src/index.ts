@@ -70,6 +70,25 @@ server.resource(
   }
 )
 
+server.registerResource(
+  "user-profile",
+  new ResourceTemplate("users://{userId}/profile", { list: undefined }),
+  {
+    title: "User Profile",
+    description: "User profile information"
+  },
+  async (uri, { userId }) => {
+    const profile = userProfiles.find(u => u.userId === userId);
+    return {
+      contents: [{
+        uri: uri.href,
+        text: `Profile data for user ${userId}: ${JSON.stringify(profile)}`,
+        mimeType: "application/json"
+      }]
+    };
+  }
+);
+
 server.resource(
   "greeting",
   new ResourceTemplate("greeting://{name}", { list: undefined }),
